@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "E4xo2+x/v71RrUzXF/xj9tNmpuXXVB2IV1Uhn1dU0AFxNWs44OA3sgSvHLyu/72Q47LttiOwF6LbV/VJro5HDA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Luis\\Source\\Repos\\EnvoyApp\\WebApplicationB\\WebApplicationB.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Luis\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.11.1\\microsoft.visualstudio.azure.containers.tools.targets.1.11.1.nupkg.sha512"
+  ],
+  "logs": []
+}

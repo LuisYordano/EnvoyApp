@@ -1,0 +1,59 @@
+services:
+  envoygateway:
+    build:
+      context: C:\Users\Luis\Source\Repos\EnvoyApp\Envoy
+      dockerfile: C:\Users\Luis\Source\Repos\EnvoyApp\Envoy\Dockerfile
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 9902
+      published: 9902
+      protocol: tcp
+    - mode: ingress
+      target: 10000
+      published: 10000
+      protocol: tcp
+    volumes:
+    - type: bind
+      source: C:\Users\Luis\Source\Repos\EnvoyApp\Envoy\envoy.yaml
+      target: /etc/envoy/envoy.yaml
+      bind:
+        create_host_path: true
+  webapplicationa:
+    build:
+      context: C:\Users\Luis\Source\Repos\EnvoyApp
+      dockerfile: C:\Users\Luis\Source\Repos\EnvoyApp\WebApplicationA\Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: webapplicationa
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      protocol: tcp
+    - mode: ingress
+      target: 80
+      published: 8082
+      protocol: tcp
+  webapplicationb:
+    build:
+      context: C:\Users\Luis\Source\Repos\EnvoyApp
+      dockerfile: C:\Users\Luis\Source\Repos\EnvoyApp\WebApplicationB\Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: webapplicationb
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      protocol: tcp
+    - mode: ingress
+      target: 80
+      published: 8084
+      protocol: tcp
+networks:
+  default:
+    name: dockercompose14811821619758633323_default
